@@ -2,45 +2,56 @@
   {
     "id": 1,
     "name": "Woo Ninja",
-    "image": "https://example.com/image1.png",
-    "price": 35,
-    "description": "Comfortable hoodie",
     "color": "Pink",
-    "size": "M",
-    "inStock": true,
-    "quantity": 10
+    "price": 35,
+    "stock": "In stock",
+    "image": "/images/hoodie.jpg",
+    "category": "Hoodie",
+    "size": "L",
+    "quantity": 1
   },
   {
     "id": 2,
     "name": "Woo Logo",
-    "image": "https://example.com/image2.png",
-    "price": 35,
-    "description": "Stylish hoodie",
     "color": "Blue",
-    "size": "L",
-    "inStock": true,
-    "quantity": 5
+    "price": 35,
+    "stock": "In stock",
+    "image": "/images/hoodiethree.jpg",
+    "category": "Hoodie",
+    "size": "XL",
+    "quantity": 1
   },
   {
     "id": 3,
     "name": "Patient Ninja",
-    "image": "https://example.com/image3.png",
-    "price": 35,
-    "description": "Casual hoodie",
     "color": "Pink",
-    "size": "XL",
-    "inStock": true,
-    "quantity": 7
+    "price": 35,
+    "stock": "In stock",
+    "image": "/images/hoodietwo.jpg",
+    "category": "Hoodie",
+    "size": "M",
+    "quantity": 1
   },
   {
     "id": 4,
     "name": "Ninja Silhouette",
-    "image": "https://example.com/image4.png",
-    "price": 35,
-    "description": "Trendy hoodie",
     "color": "Black",
-    "size": "S",
-    "inStock": true,
-    "quantity": 3
+    "price": 35,
+    "stock": "In stock",
+    "image": "/images/tshirt.jpg",
+    "category": "T-Shirt",
+    "size": "XL",
+    "quantity": 1
+  },
+  {
+    "id": 5,
+    "name": "T-Shirt Ninja",
+    "color": "Green",
+    "price": 25,
+    "stock": "In stock",
+    "image": "/images/tshirtwo.jpg",
+    "category": "T-Shirt",
+    "size": "M",
+    "quantity": 1
   }
 ]

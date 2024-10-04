@@ -1,75 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./../Styles/Style.css";
+import productsData from "./../data.json"; 
 
 const ProductListing = ({ addToCart }) => {
-  const [products] = useState([
-    {
-      id: 1,
-      name: "Woo Ninja",
-      color: "Pink",
-      price: 35,
-      stock: "In stock",
-      image: "/images/hoodie.jpg",
-      category: "Hoodie",
-      size: "L",
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "Woo Logo",
-      color: "Blue",
-      price: 35,
-      stock: "In stock",
-      image: "/images/hoodiethree.jpg",
-      category: "Hoodie",
-      size: "XL",
-      quantity: 1,
-    },
-    {
-      id: 3,
-      name: "Patient Ninja",
-      color: "Pink",
-      price: 35,
-      stock: "In stock",
-      image: "/images/hoodietwo.jpg",
-      category: "Hoodie",
-      size: "M",
-      quantity: 1,
-    },
-    {
-      id: 4,
-      name: "Ninja Silhouette",
-      color: "Black",
-      price: 35,
-      stock: "In stock",
-      image: "/images/tshirt.jpg",
-      category: "T-Shirt",
-      size: "XL",
-      quantity: 1,
-    },
-    {
-      id: 5,
-      name: "T-Shirt Ninja",
-      color: "Green",
-      price: 25,
-      stock: "In stock",
-      image: "/images/tshirtwo.jpg",
-      category: "T-Shirt",
-      size: "M",
-      quantity: 1,
-    },
-  ]);
-
+  const [products, setProducts] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
-  const [quantities, setQuantities] = useState(
-    products.reduce((acc, product) => ({ ...acc, [product.id]: 0 }), {})
-  );
-
+  const [quantities, setQuantities] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
+
+  useEffect(() => {
+    setProducts(productsData); 
+    setQuantities(productsData.reduce((acc, product) => ({ ...acc, [product.id]: 0 }), {})); 
+  }, []);
 
   const handleQuantityChange = (id, type) => {
     setQuantities((prev) => {
