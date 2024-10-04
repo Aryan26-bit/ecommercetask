@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  useNavigate,
+  Route
 } from "react-router-dom";
 import ProductListing from "./components/ProductListing";
 import Cart from "./components/Cart";
