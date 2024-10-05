@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./../Styles/Style.css";
-import productsData from "./../data.json"; 
+import productsData from "./../data.json";
 
 const ProductListing = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
@@ -14,7 +14,7 @@ const ProductListing = ({ addToCart }) => {
 
   useEffect(() => {
     setProducts(productsData); 
-    setQuantities(productsData.reduce((acc, product) => ({ ...acc, [product.id]: 0 }), {})); 
+    setQuantities(productsData.reduce((acc, product) => ({ ...acc, [product.id]: 0 }), {}));
   }, []);
 
   const handleQuantityChange = (id, type) => {

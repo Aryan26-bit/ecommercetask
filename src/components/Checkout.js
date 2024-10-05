@@ -13,7 +13,7 @@ const Checkout = ({ cartItems }) => {
     }, 2000);
   };
   return (
-    <div>
+    <div style={{ paddingTop: "3vh" }}>
       <h2>Checkout</h2>
       {cartItems.length > 0 ? (
         <div>
@@ -42,7 +42,7 @@ const Checkout = ({ cartItems }) => {
             onClick={handleConfirmPayment}
             style={{
               padding: "10px 20px",
-              backgroundColor: "#28a745",
+              backgroundColor: "#38a3a5",
               color: "#fff",
               border: "none",
               borderRadius: "5px",

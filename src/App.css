@@ -11,12 +11,14 @@ nav {
   justify-content: space-between;
   padding-left: 2vh;
   padding-right: 2vh;
-  background-color: #007bff;
-  color: #fff;
+  font-weight: 500;
+  background-color: #57cc99;
+  color: #c7f9cc;
 }
 
 nav a {
-  color: white;
+  color: #c7f9cc;
+  font-weight: 500;
   text-decoration: none;
   margin: 0 10px;
 }

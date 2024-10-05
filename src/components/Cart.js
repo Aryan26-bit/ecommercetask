@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./../Styles/Cart.css";
 
 const Cart = ({ cartItems, updateQuantity, removeFromCart }) => {
   const totalAmount = cartItems.reduce(
@@ -16,51 +17,81 @@ const Cart = ({ cartItems, updateQuantity, removeFromCart }) => {
   };
 
   return (
-    <div>
-      <h2>Cart Summary</h2>
-      {cartItems.length === 0 ? (
-        <p>No items in the cart</p>
-      ) : (
-        <div>
-          {cartItems.map((item) => (
-            <div key={item.id} className="cart-items-alignment">
-              <div className="cart-inside-elements-alignment">
-                <h3>{item.name}</h3>
-                <p>Price: ${item.price}</p>
-                <div>
-                  <button onClick={() => handleDecrement(item.id)}>-</button>
-                  <span>{item.quantity}</span>
-                  <button onClick={() => handleIncrement(item.id)}>+</button>
-                </div>
-                <button onClick={() => removeFromCart(item.id)}>Remove</button>
-              </div>
-              <p>Subtotal: ${(item.price * item.quantity).toFixed(2)}</p>
-            </div>
-          ))}
+    <div className="cart-container">
+      <div style={{ width: "100%" }}>
+        <div className="cart-table">
+          <h2>Product</h2>
+          <h2>Price</h2>
+          <h2>Quantity</h2>
+          <h2>Subtotal</h2>
         </div>
-      )}
-      <div
-        style={{
-          padding: "3vh",
-          display: "flex",
-          flexDirection: "column",
-          gap: "2vh",
-        }}
-      >
-        <h3>Total: ${totalAmount.toFixed(2)}</h3>
-        <Link to="/checkout">
-          <button
-            style={{
-              padding: "10px",
-              background: "#007bff",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
-            }}
-          >
-            Proceed to Checkout
-          </button>
-        </Link>
+
+        {cartItems.length === 0 ? (
+          <p>No items in the cart</p>
+        ) : (
+          cartItems.map((item) => (
+            <div key={item.id} className="cart-item-row">
+              <div className="cart-product-details">
+                <div>
+                  {" "}
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="remove-btn"
+                  >
+                    x
+                  </button>
+                </div>
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="cart-item-image"
+                />
+                <div>
+                  <h3>{item.name}</h3>
+                  <p>
+                    {item.size} | {item.color}
+                  </p>
+                </div>
+              </div>
+              <p className="cart-item-price">£{item.price}</p>
+              <div className="cart-quantity">
+                <button
+                  onClick={() => handleDecrement(item.id)}
+                  className="qty-btn"
+                >
+                  -
+                </button>
+                <span>{item.quantity}</span>
+                <button
+                  onClick={() => handleIncrement(item.id)}
+                  className="qty-btn"
+                >
+                  +
+                </button>
+              </div>
+              <p className="cart-item-subtotal">
+                £{(item.price * item.quantity).toFixed(2)}
+              </p>
+            </div>
+          ))
+        )}
+      </div>
+
+      <div>
+        <div className="cart-summary">
+          <p style={{ fontWeight: "500", fontSize: "3vh" }}>Cart Totals</p>
+          <div className="cart-summary-details">
+            <p>Subtotal</p>
+            <p style={{ color: "#38a3a5" }}>£{totalAmount.toFixed(2)}</p>
+          </div>
+          <div className="cart-summary-details">
+            <p>Total</p>
+            <p style={{ color: "#38a3a5" }}>£{totalAmount.toFixed(2)}</p>
+          </div>
+          <Link to="/checkout">
+            <button className="checkout-btn">Proceed to Checkout</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

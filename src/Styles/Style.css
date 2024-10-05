@@ -1,4 +1,3 @@
-/* ProductListing.css */
 .product-listing-container {
   padding: 4vh;
 }
@@ -15,8 +14,8 @@
 }
 
 .reset-btn {
-  background-color: #007bff;
-  color: white;
+  background-color: #57cc99;
+  color: #fff;
   padding: 5px 10px;
   border: none;
   cursor: pointer;
@@ -53,13 +52,13 @@
 
 .add-to-cart-btn {
   padding: 5px 10px;
-  background-color: #28a745;
-  color: white;
+  background-color: #57cc99;
+  color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 5px;
 }
 
 .add-to-cart-btn:hover {
-  background-color: #218838;
+  background-color: #57cc99;
 }

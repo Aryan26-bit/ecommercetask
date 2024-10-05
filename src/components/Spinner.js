@@ -5,7 +5,7 @@ const Spinner = () => {
   return (
     <div className="spinner-overlay">
       <div className="spinner"></div>
-      <p>Processing Payment</p>
+      {/* <p>Processing Payment</p> */}
     </div>
   );
 };
