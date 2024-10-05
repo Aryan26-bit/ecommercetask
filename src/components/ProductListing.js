@@ -14,7 +14,7 @@ const ProductListing = ({ addToCart }) => {
 
   useEffect(() => {
     setProducts(productsData); 
-    setQuantities(productsData.reduce((acc, product) => ({ ...acc, [product.id]: 0 }), {}));
+    setQuantities(productsData.reduce((acc, product) => ({ ...acc, [product.id]: 1 }), {}));
   }, []);
 
   const handleQuantityChange = (id, type) => {
