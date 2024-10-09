@@ -1,5 +1,6 @@
 .product-listing-container {
   padding: 4vh;
+  overflow: auto;
 }
 
 .filters {
@@ -54,6 +55,7 @@
   padding: 5px 10px;
   background-color: #57cc99;
   color: #fff;
+  white-space: nowrap;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -61,4 +63,32 @@
 
 .add-to-cart-btn:hover {
   background-color: #57cc99;
+}
+
+@media (max-width: 768px) {
+  .product-listing-container {
+    padding: 0vh;
+  }
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+  }
+
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input [type="text"] {
+    width: auto;
+  }
+
+  .table-mobile-view {
+    width: 50%;
+  }
+
+  .new-table-container {
+    overflow: auto;
+  }
 }

@@ -83,3 +83,9 @@ h3 {
   align-items: center;
   gap: 3vh;
 }
+
+@media (max-width: 768px) {
+  input[type="text"] {
+    width: auto;
+  }
+}

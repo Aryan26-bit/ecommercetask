@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ThankYou = () => {
+const ThankYou = ({ clearCart }) => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    clearCart();
+  }, [clearCart]);
 
   return (
     <div>

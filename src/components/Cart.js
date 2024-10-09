@@ -23,7 +23,7 @@ const Cart = ({ cartItems, updateQuantity, removeFromCart }) => {
           <h2>Product</h2>
           <h2>Price</h2>
           <h2>Quantity</h2>
-          <h2>Subtotal</h2>
+          <h2 className="sub-total">Subtotal</h2>
         </div>
 
         {cartItems.length === 0 ? (
@@ -78,6 +78,7 @@ const Cart = ({ cartItems, updateQuantity, removeFromCart }) => {
       </div>
 
       <div>
+        <h2 className="sub-total-second">Subtotal</h2>
         <div className="cart-summary">
           <p style={{ fontWeight: "500", fontSize: "3vh" }}>Cart Totals</p>
           <div className="cart-summary-details">

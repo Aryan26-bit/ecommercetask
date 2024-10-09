@@ -13,8 +13,10 @@ const ProductListing = ({ addToCart }) => {
   const [selectedSize, setSelectedSize] = useState("");
 
   useEffect(() => {
-    setProducts(productsData); 
-    setQuantities(productsData.reduce((acc, product) => ({ ...acc, [product.id]: 1 }), {}));
+    setProducts(productsData);
+    setQuantities(
+      productsData.reduce((acc, product) => ({ ...acc, [product.id]: 1 }), {})
+    );
   }, []);
 
   const handleQuantityChange = (id, type) => {
@@ -100,73 +102,75 @@ const ProductListing = ({ addToCart }) => {
       </div>
 
       {filteredProducts.length > 0 ? (
-        <table className="product-table">
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Image</th>
-              <th>Color</th>
-              <th>Price</th>
-              <th>Stock</th>
-              <th>Size</th>
-              <th>Quantity</th>
-              <th>Select</th>
-              <th>Add to Cart</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredProducts.map((product) => (
-              <tr key={product.id}>
-                <td>{product.name}</td>
-                <td>
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="product-image"
-                  />
-                </td>
-                <td>{product.color}</td>
-                <td>${product.price}</td>
-                <td>{product.stock}</td>
-                <td>{product.size}</td>
-                <td className="btns-alignment">
-                  <button
-                    onClick={() =>
-                      handleQuantityChange(product.id, "decrement")
-                    }
-                  >
-                    -
-                  </button>
-                  <span>{quantities[product.id]}</span>
-                  <button
-                    onClick={() =>
-                      handleQuantityChange(product.id, "increment")
-                    }
-                  >
-                    +
-                  </button>
-                </td>
-                <td>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={selectedItems.includes(product.id)}
-                      onChange={() => toggleSelectProduct(product.id)}
-                    />
-                  </label>
-                </td>
-                <td>
-                  <button
-                    onClick={() => handleAddToCart(product)}
-                    className="add-to-cart-btn"
-                  >
-                    Add to Cart
-                  </button>
-                </td>
+        <div className="new-table-container">
+          <table className="product-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Image</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Size</th>
+                <th>Quantity</th>
+                <th>Select</th>
+                <th>Add to Cart</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredProducts.map((product) => (
+                <tr key={product.id}>
+                  <td>{product.name}</td>
+                  <td>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="product-image"
+                    />
+                  </td>
+                  <td>{product.color}</td>
+                  <td>${product.price}</td>
+                  <td>{product.stock}</td>
+                  <td>{product.size}</td>
+                  <td className="btns-alignment">
+                    <button
+                      onClick={() =>
+                        handleQuantityChange(product.id, "decrement")
+                      }
+                    >
+                      -
+                    </button>
+                    <span>{quantities[product.id]}</span>
+                    <button
+                      onClick={() =>
+                        handleQuantityChange(product.id, "increment")
+                      }
+                    >
+                      +
+                    </button>
+                  </td>
+                  <td>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={selectedItems.includes(product.id)}
+                        onChange={() => toggleSelectProduct(product.id)}
+                      />
+                    </label>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => handleAddToCart(product)}
+                      className="add-to-cart-btn"
+                    >
+                      Add to Cart
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : (
         <p>No products found.</p>
       )}

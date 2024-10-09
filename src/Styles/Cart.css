@@ -88,3 +88,29 @@
 .checkout-btn:hover {
   background: #38a3a5;
 }
+
+.sub-total-second {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .cart-container {
+    padding: 0vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cart-table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .sub-total {
+    display: none;
+  }
+
+  .sub-total-second {
+    padding: 2vh;
+  }
+}
